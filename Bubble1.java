@@ -1,10 +1,19 @@
+//This is the modified bubble sorting algorithm
 import java.util.*;
-class Bubble1
+class BubbleSort
 {
   public static void main(String args[])
   {
-   int arr[]={42,23,74,11,65,58,94,36,99,87};
-    bubblesort(arr);
+   //int arr[]={42,23,74,11,65,58,94,36,99,87}
+//let's take a user define array
+	  Scanner ob = new Scanner(System.in);
+	  System.out.println("Enter the value of n: ");
+	  int n = ob.nextInt();
+	  int arr[] = new int[n];
+	  for(int i=0; i<n; i++){
+	  	arr[i] = ob.nextInt();
+	  }
+       bubblesort(arr);
   }
   static void bubblesort(int arr[])
   {
