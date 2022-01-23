@@ -1,0 +1,45 @@
+import java.util.*;
+class Peakindex
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter for n:");
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		System.out.println("Enter elements to the array :");
+		for(int i=0; i<n;i++)
+		{
+			 arr[i]=sc.nextInt();
+		}
+		int start= 0;
+		int end= n-1;
+		int store= binarysearch(arr,start,end);
+		System.out.println("Peak index stored in  " + store);
+	 }
+          static int binarysearch(int arr[],int start, int end)
+	 {
+	   	  
+		  while(start<=end)
+		  {
+		    int mid= start+ (end-start)/2;
+		     if(start==end)
+		    {
+			return start;
+		    }
+		    else if(arr[mid]> arr[mid+1])
+		    {
+			end=mid-1;
+		    }
+		    else if(arr[mid]< arr[mid+1])
+		    {
+		      start= mid+1;
+		    }
+		    if(start==end)
+		    {
+			return start;
+		    }
+		  }
+		  return start;
+	  }
+}
