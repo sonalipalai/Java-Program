@@ -1,0 +1,122 @@
+import java.util.*;
+class Roatedpivot
+{
+	public static void main(String args[])
+	{
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter for n:");
+	  int n=sc.nextInt();
+	  int arr[]=new int[n];
+	  System.out.println("Enter element to the array:");
+      	  for(int i=0;i<n-1; i++)
+	  {
+	    arr[i]=sc.nextInt();
+	  }
+	    System.out.println("Enter element to search:");
+	    int target=sc.nextInt();
+	    int start=0;
+	    int end= n-1;
+	    int pivot= findpivot(arr,start,end);
+	    if(pivot==-1)
+	    {
+		int ans1= binarysearch(arr,target,0,arr.length-1);
+		System.out.println("Pivot element stored in :" + ans1);
+	    }
+	    if(arr[pivot]==target)
+	    System.out.println("Pivot element is :" + arr[pivot]);
+	    if(target> arr[start])
+	    {
+		int ans2= binarysearch1(arr,target,0, pivot-1);
+		System.out.println("Pivot element stored in :" + ans2);
+	    }
+	    if(target< arr[start])
+	    {
+		int ans3= binarysearch2(arr,target,pivot+1,end);
+		System.out.println("Pivot element stored in :" + ans3);
+	    }
+	}
+  	static int findpivot(int arr[], int start, int end)
+	{
+	  while(start<=end)
+	  {
+	   int mid= start+ (end-start)/2;
+	   if(mid<end && arr[mid]>arr[mid+1])
+	   {
+		return mid;
+	   }
+	   if( mid> start && arr[mid] < arr[mid-1])
+	   {
+	  	return mid-1;
+	    }
+	   if(arr[mid]<= arr[start])
+	    {
+		end=mid-1;
+	    }
+	    else
+	    {
+	   	start= mid+1;
+	    }
+	}
+	return -1;
+      }
+	static int binarysearch(int arr[],int target,int start,int end)
+	{
+	   while(start<=end)
+	       {
+		  int mid= (end-start)/2 +start;
+		  if(arr[mid]==target)
+		  {
+		  return arr[mid];
+		  }
+		  if(target < arr[mid])
+		  {
+		    end= mid-1;
+		  }
+		  else
+		  {
+		    start=mid+1;
+		  }
+	       }
+	        return -1;
+	}
+	 static int binarysearch1(int arr[],int target,int start, int end)
+	  {
+	   while(start<=end)
+	       {
+		  int mid= (end-start)/2 +start;
+		  if(arr[mid]==target)
+		  {
+		  return arr[mid];
+		  }
+		  if(target < arr[mid])
+		  {
+		    end= mid-1;
+		  }
+		  else
+		  {
+		    start=mid+1;
+		  }
+	       }
+	        return -1;
+	}
+        static int binarysearch2(int arr[],int target,int start, int end)
+	  {
+	   while(start<=end)
+	       {
+		  int mid= (end-start)/2 +start;
+		  if(arr[mid]==target)
+		  {
+		  return arr[mid];
+		  }
+		  if(target < arr[mid])
+		  {
+		    end= mid-1;
+		  }
+		  else
+		  {
+		    start=mid+1;
+		  }
+	       }
+	        return -1;
+	}
+}
