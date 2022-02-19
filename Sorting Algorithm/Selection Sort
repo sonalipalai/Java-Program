@@ -1,0 +1,28 @@
+import java.util.*;
+class Selection1
+{
+  public static void main(String args[])
+  {
+   int arr[]={42,23,74,11,65,58,94,36,99,87};
+   selection(arr);
+  }
+  static void selection(int arr[])
+  {
+    for(int i=0;i<=arr.length-2;i++)
+    {
+ 	int min=i;
+	for(int j=i+1;j<=arr.length-1;j++)
+        {
+          if(arr[j]<arr[min])
+	  min=j;
+	}
+       if(min!=i)
+  	{
+ 	  int temp=arr[i];
+	  arr[i]= arr[min];
+	  arr[min]=temp;
+	}
+      }
+     System.out.println(Arrays.toString(arr));
+  }
+}
