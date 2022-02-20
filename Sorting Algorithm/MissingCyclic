@@ -1,0 +1,39 @@
+import java.util.*;
+class Missingcyclic
+{
+  public static void main(String args[])
+  {
+    int A[]= {4,0,2,1};
+    int check= missing1(A);
+    System.out.println("Missing element is :"  + check);
+  }
+  static int missing1(int[] A)
+  {
+    int i=0;
+    while(i<A.length)
+    {
+	if(A[i]==A.length)
+        {
+     	 i++;
+	 continue; 
+	}
+	int correct= A[i];
+	if(A[i] != A[correct])
+    	{
+ 	  int temp= A[i];
+	  A[i]=A[correct];
+	  A[correct]=temp;
+	}
+	else
+	{ 
+	i++;
+        }
+    }
+    for(int j=0; j<A.length;j++)
+    {
+     if(A[j]!=j)
+      return j;
+    }
+    return A.length;
+}
+}
