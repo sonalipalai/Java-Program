@@ -1,0 +1,37 @@
+import java.util.*;
+class Duplicatecyclic
+{
+  public static void main(String args[])
+  {
+    int arr[]={1,3,4,2,2};
+    int store= duplicate(arr);
+    System.out.println("Duplicate element is : " + store);
+    
+  }
+  static int duplicate(int[] arr)
+  {
+    int i=0;
+    while(i<arr.length)
+    {   
+        int correct = arr[i]-1;
+  	if(arr[i]!=arr[correct])
+ 	{
+	  int temp=arr[i];
+	  arr[i]=arr[correct];
+	  arr[correct]=temp;       
+    	}                                 //you can also use else if statement instead of another for loop
+ 	else
+	i++;
+     }
+     for( int j=0; j<arr.length;j++)
+     {
+	int correct1=arr[j]-1;
+	if(arr[j]!=j+1 && arr[j]==arr[correct1])
+	{
+	  return arr[j];
+	}
+     }
+    return -1;
+  }
+}
+ 
