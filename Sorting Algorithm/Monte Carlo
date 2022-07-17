@@ -1,0 +1,24 @@
+import java.util.Random;
+class Monte
+{
+  public static void main(String args[])
+  {
+	int arr[] = {9,10,4,16,7,39,49};
+	int k= 4;
+	int target = 5;
+	Random R = new Random();
+	for(int i=0;i<=k ;i++)
+	{
+	  int x= R.nextInt(arr.length);
+	  System.out.println(x);
+	  if(arr[x] == target)
+	  {
+	    System.out.println("The element is present ");
+	    break;
+	  }
+	  else
+	   System.out.println("The target is not present ");
+	   
+         }
+   }
+}
